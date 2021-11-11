@@ -1,0 +1,19 @@
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-verapdf-rest
+  annotations:
+    service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
+  labels:
+    app: verapdf-rest
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: verapdf-rest
+  sessionAffinity: None

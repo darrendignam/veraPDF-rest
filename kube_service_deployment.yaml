@@ -1,0 +1,32 @@
+ 
+apiVersion: v1
+kind: Service
+metadata:
+  name: verapdf-rest
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: verapdf-rest
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verapdf-rest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: verapdf-rest
+  template:
+    metadata:
+      labels:
+        app: verapdf-rest
+    spec:
+      containers:
+      - name: web-verapdf-rest
+        image: darrenopf/verapdf-rest
+        ports:
+        - containerPort: 8080
