@@ -4,10 +4,11 @@ networks:
 
 services:
   verapdf:
-    image: darrenopf/verapdf-rest:latest
-    build:
-      context: ./
-      dockerfile: Dockerfile
+    # image: darrenopf/verapdf-rest:latest
+    # build:
+      # context: ./
+      # dockerfile: Dockerfile
+    image: ghcr.io/darrendignam/verapdf-rest@sha256:b4960f70d2f8d942aa71d31575113e6a987db357ccbc6a47fbe7253c564b66f1
     ports:
       - "8080:8080"
       - "8081:8081"
