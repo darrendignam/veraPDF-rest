@@ -19,15 +19,6 @@ jobs:
       packages: write
       contents: read
     steps:
-      - uses: actions/checkout@v2
-      - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" | sed 's/v//' >> $GITHUB_ENV
-      - name: Test env
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ env.RELEASE_VERSION }}
-          
-          
       - name: Check out the repo
         uses: actions/checkout@v2
       
