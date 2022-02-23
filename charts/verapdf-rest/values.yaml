@@ -33,9 +33,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  ports: 
-    port: 8080
-    targetPort: 8080
+  port: 8080
 
 ingress:
   enabled: false
